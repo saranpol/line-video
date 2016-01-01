@@ -1,0 +1,5 @@
+.module-cache
+.DS_Store
+xcuserdata
+*.xcworkspace
+*.pyc
