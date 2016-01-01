@@ -1,0 +1,62 @@
+var Index = React.createClass({displayName: "Index",
+    getInitialState: function() {
+        // var p = $.cookie("password_md5");
+        // var isLogin = !(p === undefined || p === null);
+        return {data: [],
+        };
+    },
+    loadProductsFromServer: function() {
+    },
+    componentDidMount: function() {
+        //this.loadProductsFromServer();
+    },
+    clickLogout: function() {
+        FB.logout(function(res) {
+            FB_login = false;
+        });
+    },
+    getFBDataAndRegister: function() {
+        FB.api('/me?fields=name,email', function(res) {
+            console.log('Successful login for: ' + JSON.stringify(res));
+            //window.location.href = "/test";
+        });
+    },
+    clickFindPlayer: function() {
+
+    },
+    clickIAmPlayer: function() {
+        if(FB_login){
+            this.getFBDataAndRegister();
+            return;   
+        }
+        FB.login(function(res) {
+            if (res.status === 'connected') {
+                FB_login = true;
+                this.getFBDataAndRegister();
+            } else if (res.status === 'not_authorized') {
+                alert('Please log into this app.');
+            } else {
+                alert('Please log into Facebook.');
+            }
+        }.bind(this), { scope: 'public_profile,email' });
+    },
+    render: function() {
+        return (
+            React.createElement("div", null, 
+                React.createElement("button", {onClick: this.clickFindPlayer}, "Find Player"), 
+                React.createElement("button", {onClick: this.clickIAmPlayer}, "I am Player"), 
+                React.createElement("button", {onClick: this.clickLogout}, "Logout")
+            )
+        );
+    }
+});
+
+
+
+React.render(
+    React.createElement(Index, null),
+    document.getElementById('content')
+);
+
+
+

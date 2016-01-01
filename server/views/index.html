@@ -1,0 +1,37 @@
+{{define "index"}}{{template "header" dict "Info" . }}<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=728834690549617";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+    <script>
+        var Title = "{{ .Title }}";
+        var SubTitle = "{{ .SubTitle }}";
+        var VID = "{{ .VID }}";
+    </script>
+    <div id="content"></div>
+    <script src="/js/index.js?v=1"></script>
+
+    <div class="fb-comments" data-href="https://line-video.appspot.com/{{ .Title }}/{{ .VID }}" data-width="100%" data-numposts="10"></div>
+
+    <div class="center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Line Video Rectangle -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:336px;height:280px"
+             data-ad-client="ca-pub-9816851084810349"
+             data-ad-slot="2999676555"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+
+    {{template "footer"}}
+</body>
+</html>
+{{end}}
