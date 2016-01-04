@@ -29,6 +29,10 @@ body {
     text-align: center;
 }
 
+.padbottom {
+    padding-bottom: 5px;
+}
+
 .foot {
     text-align: center;
     margin: 30px;

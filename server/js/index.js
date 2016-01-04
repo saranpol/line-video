@@ -19,11 +19,8 @@ var Index = React.createClass({
             React.createElement(
                 "div",
                 { className: "des1" },
-                title
-            ),
-            React.createElement(
-                "div",
-                { className: "des2" },
+                title,
+                " ",
                 subTitle
             )
         );

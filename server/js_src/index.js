@@ -11,8 +11,7 @@ var Index = React.createClass({
         return (
             <div>
                 <iframe className="youtube-iframe" src={video_url} frameBorder="0" allowFullScreen></iframe>
-                <div className="des1">{title}</div>
-                <div className="des2">{subTitle}</div>
+                <div className="des1">{title} {subTitle}</div>
             </div>
         );
     }
